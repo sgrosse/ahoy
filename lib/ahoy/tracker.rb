@@ -241,7 +241,7 @@ module Ahoy
     end
 
     def visit_anonymity_set
-      @visit_anonymity_set ||= Digest::UUID.uuid_v5(UUID_NAMESPACE, ["visit", Ahoy.mask_ip(request.remote_ip), request.user_agent].join("/"))
+      @visit_anonymity_set ||= Digest::UUID.uuid_v5(UUID_NAMESPACE, ["visit", Ahoy.mask_ip(request.remote_ip), request.user_agent, Date.today].join("/"))
     end
 
     def visitor_anonymity_set
